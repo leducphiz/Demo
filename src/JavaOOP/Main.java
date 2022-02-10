@@ -9,11 +9,11 @@ package JavaOOP;
  * @author PhiLe
  */
 
-import JacaLanguage.Teacher;
+//import JacaLanguage.Teacher;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         Student SV1 = new Student();
 
         //Set thông tin cho sinh viên SV1
@@ -38,17 +38,17 @@ public class Main {
      * For Teacher
      * @param args
      */
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
         Teacher TC1 = new Teacher();
         //Set thông tin cho sinh viên SV1
-        TC1.code = 1;
-        TC1.name = "Nguyen Van A";
-        TC1.gender = "Female";
-        TC1.slot = 5;
+        TC1.setCode(1);
+        TC1.setName("Nguyen Van A");
+        TC1.setGender("Female");
+        TC1.setSlot(6);
         //Hiển thị thông tin của Tci
-        System.out.println("Code:" + TC1.code);
-        System.out.println("Name: " + TC1.name);
-        System.out.println("Gender:" + TC1.gender);
-        System.out.println("Math:" + TC1.slot);
+        System.out.println("Code:" + TC1.getCode());
+        System.out.println("Name: " + TC1.getName());
+        System.out.println("Gender:" + TC1.getGender());
+        System.out.println("Math:" + TC1.getSlot());
     }
 }
