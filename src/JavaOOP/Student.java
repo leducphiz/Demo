@@ -13,12 +13,12 @@ public class Student {
     protected String name;
     String gender;
     public double math, liter;
-    
-    public int getCode(){
+
+    public int getCode() {
         return code;
     }
 
-    public void setCode(int code){
+    public void setCode(int code) {
         this.code = code;
     }
 }
