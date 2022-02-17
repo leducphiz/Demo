@@ -5,40 +5,34 @@
  */
 package JavaOOP;
 
+import JacaLanguage.Common;
+import JacaLanguage.Teacher;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  * @author PhiLe
  */
-
 //import JacaLanguage.Teacher;
-
 public class Main {
 
-    public static void main1(String[] args) {
+    public static void main112(String[] args) throws IOException {
         Student SV1 = new Student();
 
-        //Set thông tin cho sinh viên SV1
-//        SV1.code = 1;
-        SV1.setCode(1);
-        SV1.name = "Nguyen Van A";
-        SV1.gender = "Female";
-        SV1.math = 5.5;
-        SV1.liter = 7.0;
-
-        //Hiển thị thông tin của SV1
-        System.out.println("Code:" + SV1.getCode());
-        System.out.println("Name:" + SV1.name);
-        System.out.println("Gender:" + SV1.gender);
-        System.out.println("Math:" + SV1.math);
-        System.out.println("Literature:" + SV1.liter);
-
+        SV1.input();
+        Student SV2 = new Student();
+        SV2.input();
+        SV1.show(1);
+        SV2.show(1);
 
     }
 
     /**
      * For Teacher
+     *
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         Teacher TC1 = new Teacher();
         //Set thông tin cho sinh viên SV1
         TC1.setCode(1);
@@ -50,5 +44,94 @@ public class Main {
         System.out.println("Name: " + TC1.getName());
         System.out.println("Gender:" + TC1.getGender());
         System.out.println("Math:" + TC1.getSlot());
+    }
+
+    public static void main1111(String[] args) throws IOException {
+        ArrayList<Student> list = new ArrayList<Student>();
+
+        list.add(new Student(1, "Le Duc Phi", "Male", 7, 8));
+        list.add(new Student(2, "Nguyen Duc Anh", "Fe", 4, 5));
+        while (true) {
+            System.out.println("1. input list student");
+            System.out.println("2. show list student");
+            System.out.println("3. search by code/name");
+            System.out.println("4. sort by code/litter, asc/desc");
+            System.out.println("5. delete by code");
+            System.out.println("6. exit");
+
+            int op = Common.InputInt("Your Choice: ");
+
+            switch (op) {
+                case 1:
+                    int size = Common.InputInt("Enter sze: ");
+                    inputList(list, size);
+
+                    break;
+                case 2:
+                    System.out.println("List Student: ");
+                    showList(list);
+                    break;
+                case 3:
+
+                    searchStudetCode(list);
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                case 6:
+
+                    System.exit(0);
+
+            }
+        }
+
+    }
+
+    private static void showList(ArrayList<Student> list) {
+        for (Student item : list) {
+            item.show(0);
+        }
+    }
+
+    private static void inputList(ArrayList<Student> list, int size) throws IOException {
+        for (int i = 0; i < size; i++) {
+            System.out.println("input SV " + i + ": ");
+            Student SV = new Student();
+            SV.input();
+            list.add(SV);
+        }
+    }
+
+    private static void searchStudetCode(ArrayList<Student> list) {
+
+        int opt = Common.InputInt("1. code \n 2.name");
+        switch (opt) {
+            case 1:
+                int code = Common.InputInt("Search by code: ");
+                for (Student item : list) {
+                    if (item.getCode() == code) {
+                        item.show(1);
+                    }
+                }
+                break;
+            case 2:
+                String namee = Common.InputString("Search by name: ");
+                for (Student item : list) {
+                    if (item.getName() == namee) {
+                        item.show(1);
+                    }
+                }
+                break;
+        }
+    }
+
+    
+    public static void main(String[] args) {
+        Fraction F1 = new Fraction(10, 12);
+        
+        System.out.println(F1.toString());
     }
 }
